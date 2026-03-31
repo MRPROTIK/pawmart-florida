@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawMart Florida | Premium Pet Supermarket</title>
+    <title>PawMart Florida | Premium Pet Essentials</title>
+    
+    <meta property="og:title" content="PawMart Florida - Luxury Pet Supermarket">
+    <meta property="og:image" content="https://mrprotik.github.io/pawmart-florida/images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
@@ -26,104 +31,127 @@
         }
     </script>
     <style>
-        .glass-nav { background: rgba(248, 244, 237, 0.8); backdrop-filter: blur(10px); }
-        .hover-gold:hover { transform: translateY(-5px); box-shadow: 0 10px 20px -5px rgba(212, 175, 135, 0.3); }
+        .glass-nav { background: rgba(248, 244, 237, 0.85); backdrop-filter: blur(12px); }
+        .hover-gold:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(212, 175, 135, 0.4); }
+        .hero-gradient { background: linear-gradient(to bottom, rgba(15, 28, 46, 0.4), rgba(15, 28, 46, 0.7)); }
     </style>
 </head>
 <body class="bg-cream text-navy font-sans overflow-x-hidden">
 
-    <nav class="glass-nav sticky top-0 z-50 border-b border-gold/20 px-6 py-4 flex justify-between items-center">
-        <div class="flex flex-col leading-none">
-            <span class="font-serif text-2xl text-gold flex items-center gap-2">
-                PawMart <span class="text-xs">🐾🌴</span>
-            </span>
-            <span class="text-[10px] tracking-[0.2em] uppercase font-semibold pl-1">Florida</span>
-        </div>
+    <nav class="glass-nav sticky top-0 z-50 border-b border-gold/20 px-6 py-3 flex justify-between items-center transition-all">
+        <a href="index.html" class="hover:opacity-80 transition-opacity">
+            <img src="images/logo.png" alt="PawMart Florida" class="h-14 w-auto object-contain">
+        </a>
 
         <div class="hidden md:flex gap-8 items-center font-medium text-sm tracking-wide">
-            <a href="index.html" class="text-gold border-b border-gold">Home</a>
+            <a href="index.html" class="text-gold border-b-2 border-gold pb-1">Home</a>
             <a href="about.html" class="hover:text-gold transition-colors">About</a>
             <div class="relative group">
-                <button class="hover:text-gold transition-colors flex items-center gap-1">Shop Pets ▾</button>
-                <div class="absolute hidden group-hover:block bg-white shadow-xl p-4 w-48 border-t-2 border-gold rounded-b-lg">
-                    <a href="dogs.html" class="block py-2 hover:text-gold">Dogs</a>
-                    <a href="cats.html" class="block py-2 hover:text-gold">Cats</a>
-                    <a href="fish.html" class="block py-2 hover:text-gold">Fish</a>
-                    <a href="birds.html" class="block py-2 hover:text-gold">Birds</a>
-                    <a href="small-pets.html" class="block py-2 hover:text-gold">Small Pets</a>
+                <button class="hover:text-gold transition-colors flex items-center gap-1">Collections ▾</button>
+                <div class="absolute hidden group-hover:block bg-white shadow-2xl p-4 w-48 border-t-2 border-gold rounded-b-xl left-0 top-full">
+                    <a href="dogs.html" class="block py-2 hover:text-gold transition-all">Canine Suite</a>
+                    <a href="cats.html" class="block py-2 hover:text-gold transition-all">Feline Suite</a>
+                    <a href="fish.html" class="block py-2 hover:text-gold transition-all">Aquatic Gallery</a>
+                    <a href="birds.html" class="block py-2 hover:text-gold transition-all">Sky Suite</a>
+                    <a href="small-pets.html" class="block py-2 hover:text-gold transition-all">Small Habitats</a>
                 </div>
             </div>
-            <a href="contact.html" class="hover:text-gold transition-colors">Contact</a>
-            <a href="admin-login.html" class="bg-navy text-white px-4 py-2 rounded-full text-xs hover:bg-gold transition-all">Admin</a>
+            <a href="contact.html" class="hover:text-gold transition-colors">Concierge</a>
+            <a href="admin-login.html" class="bg-navy text-white px-5 py-2 rounded-full text-[10px] uppercase font-bold tracking-widest hover:bg-gold transition-all shadow-lg">Admin</a>
         </div>
 
         <div class="flex items-center gap-4">
-            <button onclick="toggleCart()" class="relative">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">0</span>
+            <button onclick="toggleCart()" class="relative group">
+                <svg class="w-7 h-7 group-hover:text-gold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-gold text-white text-[9px] w-5 h-5 flex items-center justify-center rounded-full font-black border-2 border-cream">0</span>
             </button>
         </div>
     </nav>
 
-    <header class="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <img src="images/index-hero.jpg" alt="Luxury Pet Store" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-navy/40"></div>
-        <div class="relative z-10 text-center text-white px-4">
-            <h1 class="font-serif text-5xl md:text-7xl mb-6">PawMart Florida</h1>
-            <p class="text-lg md:text-xl font-light tracking-widest max-w-2xl mx-auto mb-8 opacity-90">
-                Premium Pet Essentials for the Discerning Owner. Florida's Finest Selections.
+    <header class="relative h-[92vh] flex items-center justify-center overflow-hidden">
+        <img src="images/index-hero.jpg" alt="Luxury Florida Pet Boutique" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center text-white px-4 max-w-4xl">
+            <span class="text-gold font-bold tracking-[0.4em] uppercase text-xs mb-4 block animate-pulse">Florida's Most Exclusive</span>
+            <h1 class="font-serif text-6xl md:text-8xl mb-8 leading-tight">PawMart Florida</h1>
+            <p class="text-lg md:text-xl font-light tracking-[0.1em] mb-10 opacity-90 leading-relaxed">
+                Premium Pet Essentials for the Discerning Owner. <br>Crafting a lifestyle of elegance for your companions.
             </p>
-            <a href="#shop" class="bg-gold text-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-navy transition-all transform hover:scale-105 inline-block uppercase text-sm tracking-widest">
-                Shop by Pet
-            </a>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#shop" class="bg-gold text-white px-12 py-5 rounded-full font-bold hover:bg-white hover:text-navy transition-all transform hover:scale-105 shadow-xl uppercase text-xs tracking-widest">
+                    Enter the Boutique
+                </a>
+                <a href="about.html" class="backdrop-blur-md bg-white/10 border border-white/30 text-white px-12 py-5 rounded-full font-bold hover:bg-white hover:text-navy transition-all uppercase text-xs tracking-widest">
+                    Our Heritage
+                </a>
+            </div>
         </div>
     </header>
 
-    <section id="shop" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="font-serif text-4xl mb-4 text-navy">Tailored Luxury</h2>
-            <p class="text-sage font-medium tracking-widest uppercase text-xs">Explore curated collections</p>
+    <section id="shop" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="font-serif text-5xl mb-4 text-navy">Tailored Luxury</h2>
+            <div class="h-1 w-24 bg-gold mx-auto mb-6"></div>
+            <p class="text-sage font-semibold tracking-[0.3em] uppercase text-[10px]">Curated Collections for every companion</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <a href="dogs.html" class="group relative overflow-hidden rounded-2xl h-80 hover-gold">
-                <img src="images/index-dog.jpg" alt="Dogs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
-                <div class="absolute bottom-6 left-6 text-white font-serif text-xl">Dogs</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <a href="dogs.html" class="group relative overflow-hidden rounded-[2rem] h-[450px] hover-gold transition-all duration-700">
+                <img src="images/index-dog.jpg" alt="Dogs" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-10 left-0 right-0 text-center">
+                    <span class="text-white font-serif text-2xl">Canine</span>
+                    <span class="block text-gold text-[10px] uppercase tracking-widest mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View Collection</span>
+                </div>
             </a>
-            <a href="cats.html" class="group relative overflow-hidden rounded-2xl h-80 hover-gold">
-                <img src="images/index-cat.jpg" alt="Cats" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
-                <div class="absolute bottom-6 left-6 text-white font-serif text-xl">Cats</div>
+            <a href="cats.html" class="group relative overflow-hidden rounded-[2rem] h-[450px] hover-gold transition-all duration-700">
+                <img src="images/index-cat.jpg" alt="Cats" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-10 left-0 right-0 text-center">
+                    <span class="text-white font-serif text-2xl">Feline</span>
+                    <span class="block text-gold text-[10px] uppercase tracking-widest mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View Collection</span>
+                </div>
             </a>
-            <a href="fish.html" class="group relative overflow-hidden rounded-2xl h-80 hover-gold">
-                <img src="images/index-fish.jpg" alt="Fish" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
-                <div class="absolute bottom-6 left-6 text-white font-serif text-xl">Fish</div>
+            <a href="fish.html" class="group relative overflow-hidden rounded-[2rem] h-[450px] hover-gold transition-all duration-700">
+                <img src="images/index-fish.jpg" alt="Fish" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-10 left-0 right-0 text-center">
+                    <span class="text-white font-serif text-2xl">Aquatic</span>
+                    <span class="block text-gold text-[10px] uppercase tracking-widest mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View Collection</span>
+                </div>
             </a>
-            <a href="birds.html" class="group relative overflow-hidden rounded-2xl h-80 hover-gold">
-                <img src="images/index-bird.jpg" alt="Birds" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
-                <div class="absolute bottom-6 left-6 text-white font-serif text-xl">Birds</div>
+            <a href="birds.html" class="group relative overflow-hidden rounded-[2rem] h-[450px] hover-gold transition-all duration-700">
+                <img src="images/index-bird.jpg" alt="Birds" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-10 left-0 right-0 text-center">
+                    <span class="text-white font-serif text-2xl">Avian</span>
+                    <span class="block text-gold text-[10px] uppercase tracking-widest mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View Collection</span>
+                </div>
             </a>
-            <a href="small-pets.html" class="group relative overflow-hidden rounded-2xl h-80 hover-gold">
-                <img src="images/index-small.jpg" alt="Small Pets" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                <div class="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent"></div>
-                <div class="absolute bottom-6 left-6 text-white font-serif text-xl">Small Pets</div>
+            <a href="small-pets.html" class="group relative overflow-hidden rounded-[2rem] h-[450px] hover-gold transition-all duration-700">
+                <img src="images/index-small.jpg" alt="Small Pets" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-transparent"></div>
+                <div class="absolute bottom-10 left-0 right-0 text-center">
+                    <span class="text-white font-serif text-2xl">Habitats</span>
+                    <span class="block text-gold text-[10px] uppercase tracking-widest mt-2 opacity-0 group-hover:opacity-100 transition-opacity">View Collection</span>
+                </div>
             </a>
         </div>
     </section>
 
-    <footer class="bg-white border-t border-gold/10 py-16 px-6">
+    <footer class="bg-white border-t border-gold/10 pt-24 pb-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <div class="font-serif text-3xl text-gold mb-4">PawMart <span class="text-navy">Florida</span></div>
-            <p class="text-sm text-sage max-w-md mb-8 italic">Serving the elite pets of the Sunshine State with curated, organic, and premium supplies since 2026.</p>
-            <div class="flex gap-8 mb-8 text-xs font-bold tracking-widest uppercase">
-                <a href="about.html" class="hover:text-gold">Our Story</a>
-                <a href="contact.html" class="hover:text-gold">Contact</a>
-                <a href="admin-login.html" class="hover:text-gold">Admin</a>
+            <img src="images/logo.png" alt="PawMart Florida Logo" class="h-20 w-auto mb-8 grayscale hover:grayscale-0 transition-all">
+            <p class="text-sm text-sage max-w-lg mb-12 italic leading-relaxed">
+                Defining the standard of pet luxury in Florida. From Palm Beach to Miami, we provide the essentials for those who settle for nothing less than perfection.
+            </p>
+            <div class="flex flex-wrap justify-center gap-10 mb-12 text-[10px] font-bold tracking-[0.2em] uppercase text-navy/60">
+                <a href="about.html" class="hover:text-gold transition-colors">Our Heritage</a>
+                <a href="contact.html" class="hover:text-gold transition-colors">Concierge</a>
+                <a href="admin-login.html" class="hover:text-gold transition-colors">Executive Portal</a>
+                <a href="#" class="hover:text-gold transition-colors">Ads Audit</a>
             </div>
-            <div class="text-[10px] text-navy/40">© 2026 PawMart Florida. All Rights Reserved. 🌴</div>
+            <div class="text-[9px] text-navy/30 tracking-[0.3em] uppercase">© 2026 PawMart Florida. All Rights Reserved. 🐾🌴</div>
         </div>
     </footer>
 
@@ -131,12 +159,18 @@
         let cart = JSON.parse(sessionStorage.getItem('pawmart_cart')) || [];
 
         function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.length;
+            const count = document.getElementById('cart-count');
+            if(count) count.innerText = cart.length;
             sessionStorage.setItem('pawmart_cart', JSON.stringify(cart));
         }
 
         function toggleCart() {
-            alert("Luxury Cart Summary:\n" + (cart.length > 0 ? cart.map(i => i.name).join("\n") : "Your cart is empty. Treat your pet today!"));
+            if(cart.length === 0) {
+                alert("Your luxury collection is currently empty.");
+            } else {
+                let items = cart.map(i => `• ${i.name} - $${i.price.toFixed(2)}`).join("\n");
+                alert("PawMart Florida Cart:\n\n" + items + "\n\nProceed to bespoke checkout?");
+            }
         }
 
         // Initialize UI
