@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aquatics | PawMart Florida Premium Marine Life</title>
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <script>
@@ -19,96 +22,117 @@
     <style>
         .glass-nav { background: rgba(248, 244, 237, 0.9); backdrop-filter: blur(10px); }
         .product-card:hover .add-to-cart { opacity: 1; transform: translateY(0); }
+        .hero-zoom { transition: transform 12s ease-out; }
+        .hero-zoom:hover { transform: scale(1.1); }
     </style>
 </head>
 <body class="bg-cream text-navy font-sans">
 
-    <nav class="glass-nav sticky top-0 z-50 border-b border-gold/20 px-6 py-4 flex justify-between items-center">
-        <div class="flex flex-col leading-none">
-            <a href="index.html" class="font-serif text-2xl text-gold flex items-center gap-2">PawMart <span class="text-xs">🐾🌴</span></a>
-            <span class="text-[10px] tracking-[0.2em] uppercase font-semibold pl-1">Florida</span>
-        </div>
+    <nav class="glass-nav sticky top-0 z-50 border-b border-gold/20 px-6 py-3 flex justify-between items-center">
+        <a href="index.html" class="hover:opacity-80 transition-opacity">
+            <img src="images/logo.png" alt="PawMart Florida" class="h-14 w-auto object-contain">
+        </a>
+
         <div class="hidden md:flex gap-8 items-center font-medium text-sm">
             <a href="index.html" class="hover:text-gold transition-colors">Home</a>
-            <a href="dogs.html" class="hover:text-gold">Dogs</a>
-            <a href="cats.html" class="hover:text-gold">Cats</a>
+            <a href="dogs.html" class="hover:text-gold transition-colors">Dogs</a>
+            <a href="cats.html" class="hover:text-gold transition-colors">Cats</a>
             <a href="fish.html" class="text-gold border-b border-gold">Fish</a>
-            <a href="birds.html" class="hover:text-gold">Birds</a>
-            <a href="small-pets.html" class="hover:text-gold">Small Pets</a>
+            <a href="birds.html" class="hover:text-gold transition-colors">Birds</a>
+            <a href="small-pets.html" class="hover:text-gold transition-colors">Small Pets</a>
         </div>
-        <button onclick="viewCart()" class="relative">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-width="1.5"></path></svg>
-            <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">0</span>
+
+        <button onclick="viewCart()" class="relative group">
+            <svg class="w-7 h-7 group-hover:text-gold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-width="1.5"></path></svg>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-gold text-white text-[9px] w-5 h-5 flex items-center justify-center rounded-full font-bold border-2 border-cream">0</span>
         </button>
     </nav>
 
-    <header class="relative h-[40vh] flex items-center justify-center overflow-hidden">
-        <img src="images/fish-hero.jpg" alt="Luxury Aquarium" class="absolute inset-0 w-full h-full object-cover">
+    <header class="relative h-[45vh] flex items-center justify-center overflow-hidden">
+        <img src="images/fish-hero.jpg" alt="Luxury Aquarium" class="absolute inset-0 w-full h-full object-cover hero-zoom">
         <div class="absolute inset-0 bg-navy/40"></div>
-        <h1 class="relative z-10 font-serif text-5xl text-white">The Aquatic Gallery</h1>
+        <div class="relative z-10 text-center">
+            <span class="text-gold font-bold tracking-[0.4em] uppercase text-[10px] mb-2 block">Marine & Reef Collections</span>
+            <h1 class="font-serif text-5xl md:text-6xl text-white italic">The Aquatic Gallery</h1>
+        </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-12">
+    <div class="max-w-7xl mx-auto px-6 py-16 flex flex-col md:flex-row gap-16">
         
-        <aside class="w-full md:w-64 space-y-8">
+        <aside class="w-full md:w-64 space-y-10">
             <div>
-                <h3 class="font-serif text-xl mb-4">Marine Collections</h3>
-                <ul class="space-y-2 text-sm text-sage font-medium">
+                <h3 class="font-serif text-xl mb-6 border-b border-gold/20 pb-2">Collections</h3>
+                <ul class="space-y-4 text-xs tracking-widest uppercase font-bold text-sage">
                     <li class="text-gold cursor-pointer">All Aquatic Life</li>
-                    <li class="hover:text-gold cursor-pointer">Reef-Safe Nutrition</li>
-                    <li class="hover:text-gold cursor-pointer">Designer Aquariums</li>
-                    <li class="hover:text-gold cursor-pointer">Coral Supplements</li>
+                    <li class="hover:text-gold cursor-pointer transition-colors">Reef-Safe Nutrition</li>
+                    <li class="hover:text-gold cursor-pointer transition-colors">Designer Aquariums</li>
+                    <li class="hover:text-gold cursor-pointer transition-colors">Coral Supplements</li>
                 </ul>
+            </div>
+            <div class="p-6 bg-white rounded-2xl border border-gold/10 shadow-sm">
+                <h3 class="font-serif text-lg mb-3">Florida Coastal Bio-Care</h3>
+                <p class="text-[11px] leading-relaxed text-navy/60 italic">Specialized mineral blends formulated for the unique marine conditions of the Gulf and Atlantic coasts.</p>
             </div>
         </aside>
 
-        <main class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm group">
-                <div class="h-72 overflow-hidden relative">
-                    <img src="images/fish-1.jpg" alt="Rimless Crystal Tank" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <button onclick="addToCart('Rimless Crystal Tank', 450.00)" class="add-to-cart absolute bottom-4 left-4 right-4 bg-navy text-white py-3 rounded-xl opacity-0 translate-y-4 transition-all duration-300 font-bold text-xs uppercase tracking-widest hover:bg-gold">Add to Cart</button>
+        <main class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="product-card bg-white rounded-[2rem] overflow-hidden shadow-sm group border border-transparent hover:border-gold/20 transition-all duration-500">
+                <div class="h-80 overflow-hidden relative">
+                    <img src="images/fish-1.jpg" alt="Rimless Crystal Tank" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <button onclick="addToCart('Rimless Crystal Tank', 450.00)" class="add-to-cart absolute bottom-6 left-6 right-6 bg-navy text-white py-4 rounded-xl opacity-0 translate-y-4 transition-all duration-300 font-bold text-[10px] uppercase tracking-widest hover:bg-gold shadow-xl">Add to Gallery</button>
                 </div>
-                <div class="p-6">
-                    <h4 class="font-serif text-lg">Rimless Crystal Tank</h4>
-                    <p class="text-sage text-xs mb-3 italic">Ultra-Clear Low Iron Glass</p>
-                    <span class="text-gold font-bold">$450.00</span>
-                </div>
-            </div>
-
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm group">
-                <div class="h-72 overflow-hidden relative">
-                    <img src="images/fish-2.jpg" alt="Artisan Coral Reef Food" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <button onclick="addToCart('Artisan Coral Reef Food', 42.00)" class="add-to-cart absolute bottom-4 left-4 right-4 bg-navy text-white py-3 rounded-xl opacity-0 translate-y-4 transition-all duration-300 font-bold text-xs uppercase tracking-widest hover:bg-gold">Add to Cart</button>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-serif text-lg">Artisan Coral Reef Food</h4>
-                    <p class="text-sage text-xs mb-3 italic">Micro-Nutrient Rich</p>
-                    <span class="text-gold font-bold">$42.00</span>
+                <div class="p-8">
+                    <h4 class="font-serif text-xl mb-1">Rimless Crystal Tank</h4>
+                    <p class="text-sage text-[10px] uppercase tracking-widest mb-4">Ultra-Clear Starphire Glass</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold text-lg">$450.00</span>
+                        <span class="text-[10px] text-navy/30 uppercase tracking-widest">Premium</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="product-card bg-white rounded-2xl overflow-hidden shadow-sm group">
-                <div class="h-72 overflow-hidden relative">
-                    <img src="images/fish-3.jpg" alt="Gold-Leaf Aquarium Decor" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                    <button onclick="addToCart('Gold-Leaf Aquarium Decor', 85.00)" class="add-to-cart absolute bottom-4 left-4 right-4 bg-navy text-white py-3 rounded-xl opacity-0 translate-y-4 transition-all duration-300 font-bold text-xs uppercase tracking-widest hover:bg-gold">Add to Cart</button>
+            <div class="product-card bg-white rounded-[2rem] overflow-hidden shadow-sm group border border-transparent hover:border-gold/20 transition-all duration-500">
+                <div class="h-80 overflow-hidden relative">
+                    <img src="images/fish-2.jpg" alt="Artisan Coral Food" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <button onclick="addToCart('Artisan Coral Reef Food', 42.00)" class="add-to-cart absolute bottom-6 left-6 right-6 bg-navy text-white py-4 rounded-xl opacity-0 translate-y-4 transition-all duration-300 font-bold text-[10px] uppercase tracking-widest hover:bg-gold shadow-xl">Add to Gallery</button>
                 </div>
-                <div class="p-6">
-                    <h4 class="font-serif text-lg">Gold-Leaf Aquarium Decor</h4>
-                    <p class="text-sage text-xs mb-3 italic">Safe for Tropical Habitats</p>
-                    <span class="text-gold font-bold">$85.00</span>
+                <div class="p-8">
+                    <h4 class="font-serif text-xl mb-1">Artisan Coral Food</h4>
+                    <p class="text-sage text-[10px] uppercase tracking-widest mb-4">Micro-Nutrient Rich Blend</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold text-lg">$42.00</span>
+                        <span class="text-[10px] text-navy/30 uppercase tracking-widest">Refined</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-[2rem] overflow-hidden shadow-sm group border border-transparent hover:border-gold/20 transition-all duration-500">
+                <div class="h-80 overflow-hidden relative">
+                    <img src="images/fish-3.jpg" alt="Gold-Leaf Decor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <button onclick="addToCart('Gold-Leaf Aquarium Decor', 85.00)" class="add-to-cart absolute bottom-6 left-6 right-6 bg-navy text-white py-4 rounded-xl opacity-0 translate-y-4 transition-all duration-300 font-bold text-[10px] uppercase tracking-widest hover:bg-gold shadow-xl">Add to Gallery</button>
+                </div>
+                <div class="p-8">
+                    <h4 class="font-serif text-xl mb-1">Gold-Leaf Decor</h4>
+                    <p class="text-sage text-[10px] uppercase tracking-widest mb-4">Safe for Exotic Habitats</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gold font-bold text-lg">$85.00</span>
+                        <span class="text-[10px] text-navy/30 uppercase tracking-widest">Exotic</span>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
 
-    <footer class="bg-white border-t border-gold/10 py-12 text-center">
-        <p class="text-[10px] text-navy/40 uppercase tracking-widest">© 2026 PawMart Florida 🌴</p>
+    <footer class="bg-white border-t border-gold/10 py-16 text-center">
+        <img src="images/logo.png" alt="PawMart Florida Logo" class="h-16 w-auto mx-auto mb-6 grayscale hover:grayscale-0 transition-all">
+        <p class="text-[10px] text-navy/40 uppercase tracking-[0.4em]">© 2026 PawMart Florida Heritage 🌴</p>
     </footer>
 
     <script>
         let cart = JSON.parse(sessionStorage.getItem('pawmart_cart')) || [];
         function updateCartUI() {
-            document.getElementById('cart-count').innerText = cart.length;
+            const count = document.getElementById('cart-count');
+            if(count) count.innerText = cart.length;
             sessionStorage.setItem('pawmart_cart', JSON.stringify(cart));
         }
         function addToCart(name, price) {
@@ -117,7 +141,11 @@
             alert(name + " has been added to your aquatic collection.");
         }
         function viewCart() {
-            alert("Luxury Cart Summary:\n" + (cart.length > 0 ? cart.map(i => i.name).join("\n") : "Your cart is empty."));
+            if(cart.length === 0) {
+                alert("Your aquatic collection is currently empty.");
+            } else {
+                alert("Gallery Summary:\n" + cart.map(i => `• ${i.name}`).join("\n"));
+            }
         }
         updateCartUI();
     </script>
