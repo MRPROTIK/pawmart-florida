@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Portal | PawMart Florida</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { cream: '#F8F4ED', navy: '#0F1C2E', gold: '#D4AF87', sage: '#A8B5A2' },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy text-cream font-sans min-h-screen flex flex-col items-center justify-center p-6">
+
+    <div id="login-section" class="max-w-md w-full bg-white/5 backdrop-blur-xl border border-white/10 p-10 rounded-3xl shadow-2xl transition-all duration-700">
+        <div class="text-center mb-10">
+            <div class="font-serif text-3xl text-gold mb-2">PawMart <span class="text-white">Florida</span></div>
+            <p class="text-[10px] tracking-[0.3em] uppercase text-sage font-bold">Executive Management Portal</p>
+        </div>
+
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label class="text-[10px] uppercase font-bold tracking-widest text-gold mb-2 block">Username</label>
+                <input type="text" id="username" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-gold outline-none transition-all" placeholder="admin">
+            </div>
+            <div>
+                <label class="text-[10px] uppercase font-bold tracking-widest text-gold mb-2 block">Security Password</label>
+                <input type="password" id="password" required class="w-full bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-gold outline-none transition-all" placeholder="••••••••">
+            </div>
+            <button type="submit" class="w-full bg-gold text-navy font-bold py-4 rounded-xl tracking-[0.2em] uppercase text-xs hover:bg-white transition-all">
+                Authorize Entry
+            </button>
+            <p class="text-center text-[10px] text-white/30 italic">Credentials: admin / demo123</p>
+        </form>
+    </div>
+
+    <div id="dashboard-section" class="hidden max-w-6xl w-full bg-white text-navy p-8 md:p-12 rounded-3xl shadow-2xl animate-fade-in">
+        <div class="flex justify-between items-center border-b border-gold/20 pb-8 mb-8">
+            <div>
+                <h1 class="font-serif text-3xl">Boutique Overview</h1>
+                <p class="text-sage text-sm italic">Welcome back, Administrator.</p>
+            </div>
+            <button onclick="location.reload()" class="text-xs font-bold tracking-widest uppercase border border-navy/10 px-6 py-2 rounded-full hover:bg-navy hover:text-white transition-all">Logout</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-cream p-6 rounded-2xl border border-gold/10">
+                <p class="text-[10px] uppercase font-bold text-sage mb-2">Monthly Revenue</p>
+                <p class="text-3xl font-serif text-gold">$42,850.00</p>
+            </div>
+            <div class="bg-cream p-6 rounded-2xl border border-gold/10">
+                <p class="text-[10px] uppercase font-bold text-sage mb-2">New Clients</p>
+                <p class="text-3xl font-serif text-gold">128</p>
+            </div>
+            <div class="bg-cream p-6 rounded-2xl border border-gold/10">
+                <p class="text-[10px] uppercase font-bold text-sage mb-2">Inventory Status</p>
+                <p class="text-3xl font-serif text-gold">Optimal</p>
+            </div>
+        </div>
+
+        <h2 class="font-serif text-xl mb-6">Recent Premium Orders</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm">
+                <thead class="bg-cream text-[10px] uppercase font-bold tracking-widest text-sage">
+                    <tr>
+                        <th class="p-4">Order ID</th>
+                        <th class="p-4">Client</th>
+                        <th class="p-4">Product</th>
+                        <th class="p-4">Status</th>
+                        <th class="p-4 text-right">Amount</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gold/10">
+                    <tr>
+                        <td class="p-4 font-mono text-xs">#PM-8821</td>
+                        <td class="p-4">Julianna V. (Palm Beach)</td>
+                        <td class="p-4 italic">Silk Bow Collar (Navy)</td>
+                        <td class="p-4"><span class="bg-sage/20 text-sage px-2 py-1 rounded-full text-[10px] font-bold uppercase">Shipped</span></td>
+                        <td class="p-4 text-right font-bold">$45.00</td>
+                    </tr>
+                    <tr>
+                        <td class="p-4 font-mono text-xs">#PM-8822</td>
+                        <td class="p-4">Harrison F. (Miami)</td>
+                        <td class="p-4 italic">Rimless Crystal Tank</td>
+                        <td class="p-4"><span class="bg-gold/20 text-gold px-2 py-1 rounded-full text-[10px] font-bold uppercase">Processing</span></td>
+                        <td class="p-4 text-right font-bold">$450.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if(user === 'admin' && pass === 'demo123') {
+                document.getElementById('login-section').classList.add('hidden');
+                document.getElementById('dashboard-section').classList.remove('hidden');
+                document.body.classList.remove('bg-navy');
+                document.body.classList.add('bg-cream');
+            } else {
+                alert("Unauthorized Access. Please contact the Florida Executive Office.");
+            }
+        });
+    </script>
+</body>
+</html>
